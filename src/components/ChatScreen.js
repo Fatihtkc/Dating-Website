@@ -1,42 +1,49 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
-import "../styles/chat.css";
+import "../styles/chat.css"; 
 
 function ChatScreen() {
-  const location = useLocation();
-  const matchedUser = location.state?.user || "Unknown"; // Get the selected user from MatchScreen
-
   const [messages, setMessages] = useState([
-    { id: 1, text: "Hello! How are you?", sender: matchedUser, isMine: false },
-    { id: 2, text: "I'm good! How about you?", sender: "You", isMine: true }
+    { id: 1, text: "Hey! How are you?", sender: "Emma" }
   ]);
 
-  const [newMessage, setNewMessage] = useState("");
+  const [reply, setReply] = useState("");
 
-  const sendMessage = () => {
-    if (!newMessage.trim()) return;
-    setMessages([...messages, { id: Date.now(), text: newMessage, sender: "You", isMine: true }]);
-    setNewMessage("");
+  const deleteMessage = (id) => {
+    setMessages(messages.filter(msg => msg.id !== id));
+  };
+
+  const reportUser = (sender) => {
+    alert(`User ${sender} has been reported.`);
+  };
+
+  const answerMessage = () => {
+    if (!reply.trim()) return;
+    setMessages([...messages, { id: Date.now(), text: reply, sender: "You" }]);
+    setReply("");
   };
 
   return (
-    <div className="chat-container">
-      <h2>📩 Messages with {matchedUser}</h2>
-      <div className="chat-messages">
+    <div className="page-container">
+      <h2>📩 Messages</h2>
+      <div className="chat-box">
         {messages.map((msg) => (
-          <div key={msg.id} className={`chat-bubble ${msg.isMine ? "sent" : "received"}`}>
+          <div key={msg.id} className="message">
             <p><strong>{msg.sender}:</strong> {msg.text}</p>
+            <div className="message-actions">
+              <button onClick={() => deleteMessage(msg.id)}>🗑️ Delete</button>
+              <button onClick={() => reportUser(msg.sender)}>🚨 Report</button>
+            </div>
           </div>
         ))}
       </div>
-      <div className="chat-input">
+      <div className="reply-box">
         <input 
           type="text" 
-          value={newMessage} 
-          onChange={(e) => setNewMessage(e.target.value)} 
-          placeholder="Type a message..." 
+          value={reply} 
+          onChange={(e) => setReply(e.target.value)} 
+          placeholder="Type your answer..."
         />
-        <button onClick={sendMessage}>Send</button>
+        <button onClick={answerMessage}>💬 Answer</button>
       </div>
     </div>
   );

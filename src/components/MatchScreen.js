@@ -6,8 +6,7 @@ function MatchScreen() {
   const navigate = useNavigate();
 
   const [matches, setMatches] = useState([
-    { id: 1, name: "Emma", image: "https://via.placeholder.com/100" },
-    { id: 2, name: "Liam", image: "https://via.placeholder.com/100" }
+    { id: 1, name: "Emma", image: "https://via.placeholder.com/100" }
   ]);
 
   const removeMatch = (id) => {
@@ -19,11 +18,11 @@ function MatchScreen() {
   };
 
   const openChat = (user) => {
-    navigate("/messages", { state: { user } }); // Navigate to Messages page with user data
+    navigate("/messages", { state: { user } });
   };
 
   return (
-    <div className="match-container">
+    <div className="page-container">
       <h2>❤️ Matchings</h2>
       <div className="match-list">
         {matches.length === 0 ? (
