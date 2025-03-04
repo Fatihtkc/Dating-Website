@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/global.css"; // CSS dosyasını ekledik
+
+// Tema renkleri
+const themeColor = "#7A52A1"; // Koyu pastel mor
+const backgroundColor = "#EAE6F2"; // Lavanta gri
 
 const questions = [
   { question: "How would you describe yourself?", options: ["Extroverted and social", "Balanced, sometimes introverted, sometimes extroverted", "Introverted and calm"] },
@@ -22,15 +25,16 @@ const questions = [
 const PersonalityTest = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
-  const navigate = useNavigate();
   const totalQuestions = questions.length;
+  const navigate = useNavigate(); // Sayfa yönlendirme
 
   const handleSelect = (option) => {
     setSelectedAnswers((prev) => ({ ...prev, [currentQuestion]: option }));
     if (currentQuestion < totalQuestions - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      navigate("/personal-info");
+      console.log("User Answers:", selectedAnswers);
+      navigate("/personal-info"); // 📌 Son sorudan sonra yeni ekrana geçiş
     }
   };
 
@@ -41,39 +45,136 @@ const PersonalityTest = () => {
   };
 
   return (
-    <div className="page-container">
-      <h1 className="logo">SoulM</h1>
-      <div className="container">
-        <h1 className="title">Personality Test</h1>
+    <div style={{ ...styles.pageContainer, backgroundColor }}>
+      {/* 🔹 SoulM Logo */}
+      <h1 style={styles.logo}>SoulM</h1>
 
-        <div className="progress-bar-container">
+      <div style={styles.container}>
+        <h1 style={{ ...styles.title, color: themeColor }}>Personality Test</h1>
+
+        {/* 🔹 Progress Bar */}
+        <div style={styles.progressBarContainer}>
           <div
-            className="progress-bar"
-            style={{ width: `${((currentQuestion + 1) / totalQuestions) * 100}%` }}
+            style={{
+              ...styles.progressBar,
+              width: `${((currentQuestion + 1) / totalQuestions) * 100}%`,
+              backgroundColor: themeColor,
+            }}
           ></div>
         </div>
 
-        <h2 className="question-text">{questions[currentQuestion].question}</h2>
+        {/* 🔹 Question */}
+        <h2 style={styles.questionText}>{questions[currentQuestion].question}</h2>
 
-        <div className="options-container">
+        {/* 🔹 Options */}
+        <div style={styles.optionsContainer}>
           {questions[currentQuestion].options.map((option, index) => (
-            <button key={index} className="option-button" onClick={() => handleSelect(option)}>
+            <button
+              key={index}
+              style={{ ...styles.optionButton, backgroundColor: themeColor }}
+              onClick={() => handleSelect(option)}
+            >
               {option}
             </button>
           ))}
         </div>
 
-        <div className="navigation-container">
-          <button onClick={handlePrevious} disabled={currentQuestion === 0} className="nav-button">
+        {/* 🔹 Navigation Buttons */}
+        <div style={styles.navigationContainer}>
+          <button onClick={handlePrevious} disabled={currentQuestion === 0} style={styles.navButton}>
             ◀ Previous
           </button>
-          <button disabled className="nav-button">
+          <button disabled style={styles.navButton}>
             {currentQuestion + 1} / {totalQuestions}
           </button>
         </div>
       </div>
     </div>
   );
+};
+
+// **Updated Styles**
+const styles = {
+  pageContainer: {
+    fontFamily: "'Poppins', sans-serif",
+    width: "100vw",
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: "0",
+    position: "relative",
+  },
+  logo: {
+    position: "absolute",
+    top: "20px",
+    left: "20px",
+    fontSize: "28px",
+    fontWeight: "bold",
+    background: "linear-gradient(45deg, #FFA500, #7A52A1)",
+    WebkitBackgroundClip: "text",
+    color: "transparent",
+  },
+  container: {
+    textAlign: "center",
+    backgroundColor: "#fff",
+    padding: "60px",
+    borderRadius: "12px",
+    boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.2)",
+    maxWidth: "600px",
+    width: "90%",
+    minHeight: "600px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+  title: {
+    fontSize: "48px",
+    fontWeight: "bold",
+    marginBottom: "50px",
+  },
+  questionText: {
+    fontSize: "30px",
+    fontWeight: "600",
+    marginBottom: "50px",
+  },
+  progressBarContainer: {
+    width: "100%",
+    height: "12px",
+    backgroundColor: "#ddd",
+    borderRadius: "6px",
+    overflow: "hidden",
+    marginBottom: "25px",
+  },
+  progressBar: { height: "12px", transition: "width 0.3s ease" },
+  optionButton: {
+    fontFamily: "'Poppins', sans-serif",
+    width: "100%",
+    padding: "16px",
+    margin: "10px 0",
+    fontSize: "18px",
+    color: "#fff",
+    borderRadius: "8px",
+    cursor: "pointer",
+  },
+  navigationContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "20px",
+    marginTop: "25px",
+  },
+  navButton: {
+    fontFamily: "'Poppins', sans-serif",
+    padding: "14px 20px",
+    borderRadius: "8px",
+    fontSize: "16px",
+    fontWeight: "bold",
+    backgroundColor: "#BFA2DB",
+    border: "none",
+    color: "white",
+    cursor: "pointer",
+  },
 };
 
 export default PersonalityTest;
