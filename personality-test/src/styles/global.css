@@ -116,7 +116,7 @@ h2 {
     margin-top: 25px;
 }
 
-/* 🔹 Next ve Finish & Save Butonlarını Küçült */
+/* 🔹 Next ve Finish & Save Butonları */
 .nav-button,
 .primary-button {
     padding: 12px 20px;
@@ -255,6 +255,45 @@ h2 {
 .profile-button:hover {
     background-color: #5a3a85;
     transform: scale(1.05);
+}
+
+/* 🔹 Genel Slider Stili */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 50%; /* Daha kısa hale getirildi */
+    height: 5px; /* Daha ince hale getirildi */
+    border-radius: 3px;
+    background: linear-gradient(90deg, #FFA500 0%, #ccc 100%); /* Başlangıçta turuncu */
+    outline: none;
+    transition: background 0.3s ease-in-out;
+}
+
+/* 🔹 Kaydırma Noktası (Thumb) */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px; /* Küçültüldü */
+    height: 12px;
+    background-color: #FFA500; /* Turuncu renkte */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* 🔹 Hover Efekti */
+input[type="range"]:hover {
+    background: linear-gradient(90deg, #FFA500 0%, #7A52A1 100%); /* Hover efekti ile mor geçiş */
+}
+
+/* 🔹 Kaydırma Noktası Hover */
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2); /* Hafif büyüme efekti */
+}
+
+/* 🔹 Slider Arasındaki Boşluk */
+.form-group input[type="range"] {
+    margin-bottom: 15px; /* Sliderlar arasında daha fazla boşluk bırak */
 }
 
 /* 📌 Mobil Uyumluluk */

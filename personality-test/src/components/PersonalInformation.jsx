@@ -12,10 +12,10 @@ const PersonalInformation = () => {
     gender: "",
     location: "",
     lookingFor: "",
-    agePreference: "",
-    distancePreference: "",
-    height: "",
-    weight: "",
+    agePreference: "18-25",
+    distancePreference: "0-10 km",
+    height: 170,
+    weight: 70,
     bodyType: "",
     smoker: "",
     drinking: "",
@@ -95,12 +95,27 @@ const PersonalInformation = () => {
 
             <div className="form-group">
               <label className="form-label">Age Preference</label>
-              <input className="form-input" type="text" name="agePreference" value={formData.agePreference} onChange={handleChange} />
+              <select className="form-input" name="agePreference" value={formData.agePreference} onChange={handleChange}>
+                <option value="18-25">18-25</option>
+                <option value="26-35">26-35</option>
+                <option value="36-45">36-45</option>
+                <option value="46+">46+</option>
+              </select>
             </div>
 
             <div className="form-group">
-              <label className="form-label">Distance Preference (km)</label>
-              <input className="form-input" type="number" name="distancePreference" value={formData.distancePreference} onChange={handleChange} />
+              <label className="form-label">Distance Preference</label>
+              <select className="form-input" name="distancePreference" value={formData.distancePreference} onChange={handleChange}>
+                <option value="0-10 km">0-10 km</option>
+                <option value="11-25 km">11-25 km</option>
+                <option value="26-50 km">26-50 km</option>
+                <option value="51-75 km">51-75 km</option>
+                <option value="76-100 km">76-100 km</option>
+                <option value="101-125 km">101-125 km</option>
+                <option value="126-150 km">126-150 km</option>
+                <option value="151-175 km">151-175 km</option>
+                <option value="176-200 km">176-200 km</option>
+              </select>
             </div>
           </>
         )}
@@ -108,13 +123,13 @@ const PersonalInformation = () => {
         {step === 2 && (
           <>
             <div className="form-group">
-              <label className="form-label">Height</label>
-              <input className="form-input" type="text" name="height" value={formData.height} onChange={handleChange} />
+              <label className="form-label">Height: {formData.height} cm</label>
+              <input type="range" min="140" max="210" name="height" value={formData.height} onChange={handleChange} className="slider" />
             </div>
 
             <div className="form-group">
-              <label className="form-label">Weight</label>
-              <input className="form-input" type="text" name="weight" value={formData.weight} onChange={handleChange} />
+              <label className="form-label">Weight: {formData.weight} kg</label>
+              <input type="range" min="40" max="150" name="weight" value={formData.weight} onChange={handleChange} className="slider" />
             </div>
 
             <div className="form-group">
