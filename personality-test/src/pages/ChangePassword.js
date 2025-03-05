@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/global.css"; // ✅ Global stiller
+import "../styles/global.css"; 
 
 const ChangePassword = () => {
   const [password, setPassword] = useState("");
@@ -12,7 +12,7 @@ const ChangePassword = () => {
       return;
     }
     console.log("Password changed successfully:", password);
-    // ✅ API'ye gönderme işlemi burada yapılabilir
+    //  API'ye gönderme işlemi burada yapılabilir
   };
 
   return (

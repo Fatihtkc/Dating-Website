@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/global.css"; // CSS dosyasını ekledik
+import "../styles/global.css";
 
 const questions = [
   { question: "How would you describe yourself?", options: ["Extroverted and social", "Balanced, sometimes introverted, sometimes extroverted", "Introverted and calm"] },

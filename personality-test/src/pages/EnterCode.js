@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import "../styles/global.css"; // ✅ Global stiller
+import { useNavigate } from "react-router-dom";
+import "../styles/global.css"; 
 
 const EnterCode = () => {
   const [code, setCode] = useState("");
+  const [showAlert, setShowAlert] = useState(false); 
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -10,8 +13,17 @@ const EnterCode = () => {
       alert("Please enter a 6-digit code.");
       return;
     }
+    
     console.log("Code submitted:", code);
-    // ✅ Burada yönlendirme veya API isteği eklenebilir
+    
+   
+    setShowAlert(true);
+  };
+
+  const handleOkClick = () => {
+    // Kullanıcı "OK" butonuna bastığında Change Password ekranına yönlendir
+    setShowAlert(false);
+    navigate("/changepassword");
   };
 
   return (
@@ -43,6 +55,14 @@ const EnterCode = () => {
           </button>
         </form>
       </div>
+
+      {/* Uyarı Kutusu */}
+      {showAlert && (
+        <div className="alert-box">
+          <p>Verification successful! Redirecting to password change screen...</p>
+          <button className="ok-button" onClick={handleOkClick}>OK</button>
+        </div>
+      )}
     </div>
   );
 };

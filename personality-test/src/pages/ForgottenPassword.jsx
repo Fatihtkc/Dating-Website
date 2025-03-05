@@ -1,12 +1,22 @@
 import React, { useState } from "react";
-import "../styles/global.css"; // ✅ Global stiller
+import { useNavigate } from "react-router-dom";
+import "../styles/global.css"; 
 
 const ForgottenPassword = () => {
   const [email, setEmail] = useState("");
+  const [showAlert, setShowAlert] = useState(false); // Uyarıyı kontrol eden state
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Password reset request sent for:", email);
+
+    setShowAlert(true);
+  };
+
+  const handleOkClick = () => {
+    setShowAlert(false);
+    navigate("/entercode");
   };
 
   return (
@@ -33,12 +43,19 @@ const ForgottenPassword = () => {
             />
           </div>
 
-          {/* 🔹 Eksik olan buton metni eklendi */}
           <button type="submit" className="primary-button">
             Request Password
           </button>
         </form>
       </div>
+
+      {/*  Uyarı Kutusu */}
+      {showAlert && (
+        <div className="alert-box">
+          <p>A reset code has been sent to your email address.</p>
+          <button className="ok-button" onClick={handleOkClick}>OK</button>
+        </div>
+      )}
     </div>
   );
 };

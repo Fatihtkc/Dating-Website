@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/global.css"; // ✅ Global CSS ile tam uyumlu
+import "../styles/global.css"; 
 
 const steps = ["Basic Info", "Preferences", "Lifestyle", "Interests"];
 
@@ -46,12 +46,12 @@ const PersonalInformation = () => {
       <div className="form-container">
         <h1 className="form-title">Tell us more about yourself</h1>
 
-        {/* 🔹 Progress Bar */}
+        {/* Progress Bar */}
         <div className="progress-bar-container">
           <div className="progress-bar" style={{ width: `${((step + 1) / steps.length) * 100}%` }}></div>
         </div>
 
-        {/* 🔹 Form İçeriği */}
+        {/* Form İçeriği */}
         {step === 0 && (
           <>
             <div className="form-group">
@@ -171,7 +171,7 @@ const PersonalInformation = () => {
           </>
         )}
 
-        {/* 🔹 Navigasyon Butonları */}
+        {/* Navigasyon Butonları */}
         <div className="navigation-container">
           {step > 0 && <button className="nav-button" onClick={prevStep}>◀ Back</button>}
           {step < steps.length - 1 ? (

@@ -38,7 +38,7 @@ body {
     height: 100vh;
 }
 
-/* 🟣 Personality Test İçeriği */
+/* Personality Test İçeriği */
 .container {
     background-color: #fff;
     padding: 90px;
@@ -116,7 +116,7 @@ h2 {
     margin-top: 25px;
 }
 
-/* 🔹 Next ve Finish & Save Butonları */
+/* Next ve Finish & Save Butonları */
 .nav-button,
 .primary-button {
     padding: 12px 20px;
@@ -138,7 +138,7 @@ h2 {
     transform: scale(1.05);
 }
 
-/* 🔹 Personal Information Form Sayfası */
+/* Personal Information Form Sayfası */
 .form-container {
     background-color: #fff;
     padding: 50px; /* 📌 Form kutusu küçültüldü */
@@ -149,14 +149,14 @@ h2 {
     text-align: center;
 }
 
-/* 🔹 Form Başlığı */
+/* Form Başlığı */
 .form-title {
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-/* 🔹 Form Grupları */
+/* Form Grupları */
 .form-group {
     display: flex;
     flex-direction: column;
@@ -164,7 +164,7 @@ h2 {
     margin-bottom: 15px;
 }
 
-/* 🔹 Input Alanları */
+/* Input Alanları */
 .form-input {
     width: 100%;
     padding: 12px;
@@ -180,7 +180,7 @@ h2 {
     box-shadow: 0 0 5px rgba(122, 82, 161, 0.3);
 }
 
-/* 🔹 Profile Page İçin Kutuyu Küçült */
+/* Profile Page İçin Kutuyu Küçült */
 .profile-container {
     background-color: #fff;
     padding: 50px; /* 📌 Daha kompakt hale getirildi */
@@ -191,7 +191,7 @@ h2 {
     text-align: center;
 }
 
-/* 🔹 Profile Başlık */
+/* Profile Başlık */
 .profile-title {
     font-size: 30px;
     font-weight: bold;
@@ -199,7 +199,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* 🔹 Profil Form Alanları */
+/* Profil Form Alanları */
 .profile-group {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -207,14 +207,14 @@ h2 {
     margin-bottom: 15px;
 }
 
-/* 🔹 Profil İçin Input Alanları */
+/* Profil İçin Input Alanları */
 .profile-group .form-group {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-/* 🔹 Profil Input Stili */
+/* Profil Input Stili */
 .profile-input {
     width: 100%;
     padding: 12px;
@@ -229,7 +229,7 @@ h2 {
     box-shadow: 0 0 5px rgba(122, 82, 161, 0.3);
 }
 
-/* 🔹 Butonlar */
+/* Butonlar */
 .profile-buttons {
     display: flex;
     justify-content: center;
@@ -237,7 +237,7 @@ h2 {
     margin-top: 20px;
 }
 
-/* 🔹 Buton Stilleri */
+/* Buton Stilleri */
 .profile-button {
     padding: 12px 20px;
     font-size: 16px;
@@ -257,7 +257,7 @@ h2 {
     transform: scale(1.05);
 }
 
-/* 🔹 Genel Slider Stili */
+/* Genel Slider Stili */
 input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
@@ -269,7 +269,7 @@ input[type="range"] {
     transition: background 0.3s ease-in-out;
 }
 
-/* 🔹 Kaydırma Noktası (Thumb) */
+/* Kaydırma Noktası (Thumb) */
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -281,22 +281,22 @@ input[type="range"]::-webkit-slider-thumb {
     transition: transform 0.2s ease-in-out;
 }
 
-/* 🔹 Hover Efekti */
+/* Hover Efekti */
 input[type="range"]:hover {
     background: linear-gradient(90deg, #FFA500 0%, #7A52A1 100%); /* Hover efekti ile mor geçiş */
 }
 
-/* 🔹 Kaydırma Noktası Hover */
+/* Kaydırma Noktası Hover */
 input[type="range"]::-webkit-slider-thumb:hover {
     transform: scale(1.2); /* Hafif büyüme efekti */
 }
 
-/* 🔹 Slider Arasındaki Boşluk */
+/* Slider Arasındaki Boşluk */
 .form-group input[type="range"] {
     margin-bottom: 15px; /* Sliderlar arasında daha fazla boşluk bırak */
 }
 
-/* 📌 Mobil Uyumluluk */
+/*  Mobil Uyumluluk */
 @media screen and (max-width: 768px) {
     .profile-group {
         grid-template-columns: 1fr;
@@ -311,7 +311,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
         width: 100%;
     }
 }
-/*Forgotten Password Ekranı */
+/* Forgotten Password Ekranı */
 .forgot-password-container {
     background-color: #fff;
     padding: 60px;
@@ -372,7 +372,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
     transform: scale(1.05);
 }
 
-/* 🔹 Enter Code Sayfası */
+/* Enter Code Sayfası */
 .enter-code-container {
     display: flex;
     flex-direction: column;
@@ -443,7 +443,40 @@ input[type="range"]::-webkit-slider-thumb:hover {
     transform: scale(1.05);
 }
 
-/* 🔹 Change Password Sayfası */
+/* Uyarı Kutusu */
+.alert-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+    z-index: 1000;
+}
+
+/* OK Butonu */
+.ok-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #7A52A1;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.ok-button:hover {
+    background-color: #5a3a85;
+}
+
+/* Change Password Sayfası */
 .change-password-container {
     display: flex;
     flex-direction: column;
@@ -514,7 +547,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
     transform: scale(1.05);
 }
 
-/* 📌 Tüm kutuları daha responsive yapmak için */
+/*  Tüm kutuları daha responsive yapmak için */
 @media screen and (max-width: 768px) {
     .forgot-password-box,
     .enter-code-box,
@@ -552,7 +585,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
     }
 }
 
-/* 📌 Küçük ekranlar (Telefon) için özel ayar */
+/*  Küçük ekranlar (Telefon) için özel ayar */
 @media screen and (max-width: 480px) {
     .forgot-password-box,
     .enter-code-box,
