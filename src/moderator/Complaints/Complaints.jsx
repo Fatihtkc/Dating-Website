@@ -6,14 +6,14 @@ import "../../css/Complaints.css";
 const complaints = [
   {
     id: 1,
-    sikayetEden: { id: 101, ad: "Ahmet Yılmaz", resim: "/a.png" },
-    sikayetEdilen: { id: 102, ad: "Ayşe Demirsssssssssssssssssssssssssssssssssssssssssssssssss", resim: "/b.png" },
+    sikayetEden: { id: 1, ad: "Ahmet Yılmaz", resim: "/a.png" },
+    sikayetEdilen: { id: 2, ad: "Ayşe Demirsssssssssssssssssssssssssssssssssssssssssssssssss", resim: "/b.png" },
     neden: "Uygunsuz mesajlar göndermeDemirsssssssssssssssssssssssssssssssssssssssssssssssss",
   },
   {
     id: 2,
-    sikayetEden: { id: 103, ad: "Mehmet Kaya", resim: "/a.png" },
-    sikayetEdilen: { id: 104, ad: "Elif Çelik", resim: "/a.png" },
+    sikayetEden: { id: 1, ad: "Mehmet Kaya", resim: "/a.png" },
+    sikayetEdilen: { id: 3, ad: "Elif Çelik", resim: "/a.png" },
     neden: "Rahatsız edici davranış",
   },
 ];

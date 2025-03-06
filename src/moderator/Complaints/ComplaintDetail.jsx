@@ -12,14 +12,14 @@ const ComplaintDetail = () => {
       "Bu kullanıcı uygunsuz davranışlar sergiledi ve spam mesajlar gönderiyor. Açıklama detayları burada yer alabilir. (Detaylı açıklama metni...)",
     images: ["/a.png", "/b.png", "/a.png"],
     owner: {
-      id: 101,
+      id: 2,
       name: "Ahmet Yılmaz",
       email: "ahmet@example.com",
       phone: "0555 123 45 67",
       image: "/a.png",
     },
     target: {
-      id: 102,
+      id: 1,
       name: "Ayşe Demir",
       email: "ayse@example.com",
       phone: "0555 765 43 21",
