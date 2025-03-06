@@ -12,7 +12,7 @@ import {
   FaCheck,
   FaArrowLeft
 } from "react-icons/fa";
-import "../css/ProfileDetails.css";
+import "../../css/ProfileDetails.css";
 
 const detailProfiles = [
   {
