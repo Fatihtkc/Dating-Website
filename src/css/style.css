@@ -1,665 +1,218 @@
-* {
-    box-sizing: border-box;
-}
-
-html, body {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    background: #c2c2c2;
-    font-family: 'Lora', serif;
-}
-
-
-header {
-    background: #7c0294;
-    height: 70px;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    position: relative;
-}
-
-/* Logo ve başlık */
-header .logo {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-}
-
-header .logo-text {
-    font-family: 'Dosis', serif;
-    font-size: 40px;
-    color: #000000;
-    margin: 0;
-}
-
-header .logo-text span {
-    color: #ffffff;
-}
-
-header .header-divider {
-    height: 40px; 
-    width: 5px; 
-    background: #ffffff;
-    border-radius: 2px;
-    margin: 0 20px;
-}
-
-/* Menü öğeleri */
-header ul {
-    display: flex;
-    align-items: center;
-    list-style: none;
+/* Genel Stil */
+body, html, .container {
     margin: 0;
     padding: 0;
-    margin-left: 10px;
-    flex-grow: 1;
-}
-
-header ul li {
-    margin-left: 20px;
-}
-
-header .profile-item {
-    margin-left: auto; 
-    cursor: pointer;
-}
-
-header ul li a {
-    padding: 15px 20px;
-    font-size: 1.3em;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
-    border-radius: 20px;
-    color: #000000;
-}
-
-header ul li a:hover {
-    background: #451150;
-    color: #fff;
-    border-radius: 20px;
-}
-
-/* Alt menü (dropdown) */
-header ul li {
-    position: relative; 
-}
-  
-header ul li ul {
-    position: absolute;
-    top: 150%; 
-    right: 0;
-    width: 200px;
-    background-color: #451150;
-    border-radius: 50px;
-    display: none;
-    z-index: 1000; 
-    padding: 10px 0; 
-}
-  
-header ul li:hover ul {
-    display: block; 
-}
-  
-header ul li ul li {
-    width: 100%;
-}
-  
-header ul li ul li a {
-    padding: 10px 15px;
-    color: #ffffff;
-    transition: background-color 0.3s;
-    display: block; 
-    border-radius: 50px; 
-}
-  
-header ul li ul li a.logout {
-    color: rgb(255, 0, 0); 
-}
-  
-header ul li ul li a:hover {
-    background: #9f5dac; 
-    color: #ffffff;
-    transform: translateX(-10px); 
-    transition: transform 0.3s ease, background-color 0.3s; 
-}
-  
-header .menu-toggle {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #fff;
-}
-  
-
-.match-screen-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 90vh;
-    padding: 1rem;
-    position: relative;
+    font-family: Arial, sans-serif;
   }
   
-  .match-card {
-    width: 100%;
-    max-width: 600px;
-    min-height: 750px;
-    padding: 1rem;
-    background-color: #e7e5e5;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 1.25rem;
-    position: relative;
-    text-align: center;
+    /* Header */
+  .header {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;;
-    align-items: center;
-    overflow: hidden;
-  }
-
-  .profile-images {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  
-  .match-profile-img {
-    width: 400px;
-    height: 500px;
-    border: 2px solid #000000;
-    border-radius: 100%;
-    object-fit: cover;
-    margin: auto;
-  }
-
-  .image-navigation {
-    position: absolute;
-    top: 35%;
-    width: 100%;
-    display: flex;
-    padding: 0 50px;
     justify-content: space-between;
-    transform: translateY(-50%);
-  }
-  
-  .prev-button, .next-button {
-    background: rgba(0, 0, 0, 0.5);
-    background-color: #4e4d4e;;
-    color: rgb(0, 0, 0);
-    border: none;
-    padding: 5px;
-    font-size: 30px;
     align-items: center;
-    cursor: pointer;
-    border-radius: 100%;
-    transition: background-color 0.2s ease;
-  }
-  
-  .prev-button:hover, .next-button:hover {
-    background: #141414;
-    color: #ffff;
-  }
-  
-  .match-profile-name {
-    font-size: 1.25rem;
-    font-weight: 600;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin: auto;
-    margin-block-start: 1.5em;
-    margin-block-end: 0.95em;
-  }
-  
-  .match-profile-bio {
-    color: #6B7280;
-    max-height: 4.5em; 
-    overflow: hidden;
-    text-overflow: ellipsis; 
-    line-height: 1.5em;
-  }
- 
-  .match-button-container {
-    display: flex;
-    margin-top: 1.5rem;
-    gap: 1rem;
-  }
-
-  .match-button {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 1px solid #D1D5DB;
-    cursor: pointer;
-  }
-  
-  .match-button.like {
-    color: #10B981;
-    border-color: #FEE2E2;
-  }
-  
-  .match-button.dislike {
-    color: #EF4444;
-    border-color: #FEE2E2;
-  }
-
-  .match-button:hover {
-    background-color: #6f278b; 
-    border-color: #000000;
-    cursor: pointer; 
-  }
-
-.footer {
-    background: #7c0294;
-    color: #c999d8;
-    height: 400px;
-    position: relative;
-    margin-top: auto;
-}
-
-.footer .footer-content {
-    height: 350px;
-    display: flex;
-}
-
-.footer .footer-content .footer-section {
-    flex: 1;
-    padding: 25px; 
-}
-
-.footer .footer-content h1,
-.footer .footer-content h2 {
-    color: #000000;
-}
-
-.footer .footer-content .about h1 span {
-    color: #ffffff;
-}
-
-.footer .footer-content .about .contact span {
-    display: block;
-    font-size: 1.1em;
-    margin-bottom: 8px;
-}
-
-.footer .footer-content .about .socials a {
-    border: 1px solid gray;
-    width: 45px;
-    height: 41px;
-    padding-top: 5px;
-    margin-right: 5px;
-    text-align: center;
-    display: inline-block;
-    font-size: 1.3em;
-    border-radius: 5px;
-    transition: all .3s;
-}
-
-.footer .footer-content .about .socials a:hover {
-    border: 1px solid white;
-    color: white;
-    transition: all .3s;
-}
-
-.footer .footer-content .links ul a {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 1.2em;
-    color: rgb(189, 189, 189);
-    transition: all .3s;
-}
-
-.footer .footer-content .links ul a:hover {
-    color: white;
-    margin-left: 15px;
-    transition: all .3s;
-}
-
-.footer .footer-content .contact-form {
-    flex: 1;
-    padding: 25px;
-}
-
-.footer .footer-content .contact-form h2 {
-    margin-bottom: 20px;
-    color: #000000;
-}
-
-.footer .footer-content .contact-form form {
-    display: flex;
-    flex-direction: column;
-}
-
-.footer .footer-content .contact-form .contact-input {
-    background: #3c0147;
-    color: #451150;
-    margin-bottom: 10px;
-    line-height: 1.5rem;
-    padding: 0.7rem 1.4rem;
-    border: none;
-    border-radius: 5px;
-    font-family: 'Lora', serif;
-    font-size: 1rem;
-}
-
-.footer .footer-content .contact-form .contact-input:focus {
-    background: #1a1a1a;
-    outline: none;
-}
-
-.footer .footer-content .contact-form textarea.contact-input {
-    resize: vertical;
-    min-height: 100px; 
-}
-
-.footer .footer-content .contact-form .contact-btn {
-    background: #451150;
-    color: white;
-    border: none;
-    height: 35px;
-    font-family: 'Lora', serif;
-    width: 80px;
+    background-color: purple;
     padding: 10px 20px;
-    font-size: 1.1em;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    align-self: flex-end;
-}
+    color: white;
+  }
 
-.footer .footer-content .contact-form .contact-btn:hover {
-    background: #1a1a1a;
-}
-
-.footer .footer-bottom {
-    background: #3c0147;
-    color: #c2c2c2;
-    height: 50px;
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    padding-top: 20px;
-}
-
-
-/* Auth Content */
-.auth-content {
+  /* Navbar */
+  .header-nav {
     display: flex;
-    justify-content: center;
+    gap: 20px;
+  }
+  
+  .header-left, .header-nav, .header-right {
+    display: flex;
     align-items: center;
-    min-height: 80vh;
   }
 
-  .auth-form-container { /* Form container ekledik */
-    background-color: white;
-    padding: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    width: 100%;
-    max-width: 400px;
+  .header-right {
+    position: relative;
   }
   
-  .login-form { 
-    background-color: white;
-    padding: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    width: 100%;
-    max-width: 400px;
+  .logo {
+    height: 50px;
   }
   
-  h2.log-title {
-    text-align: center;
-    font-size: 2em;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .login-form div {
-    margin-bottom: 15px;
-  }
-  
-  .login-form label {
-    font-size: 1em;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .login-form .text-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .login-form .text-input:focus {
-    border-color: #000000;
-    outline: none;
-  }
-  
-  .login-form .btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #7c0294;
-    border: none;
-    color: white;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .login-form .btn:hover {
-    background-color: #451150;
-  }
-  
-  .login-form p {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .login-form p a {
+  /* Navigation */
+  .nav-item {
+    color: #fff;
     text-decoration: none;
-    color: #7c0294;
-  }
-  
-  .login-form p a:hover {
-    color: #000000;
-  }
-
-  h2.form-title {
-    text-align: center;
-    font-size: 2em;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #333;
-  }
-
-  form label {
-    font-size: 1em;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  /* Form elemanları */
-  form div {
-    margin-bottom: 20px;
-  }
-  
-  /* Input alanları */
-  .text-input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 14px;
-  }
-  
-  .text-input:focus {
-    border-color: #000000;
-    outline: none;
-  }
-  
-  /* Button */
-  .btn {
-    background-color: #7c0294;
-    color: white;
-    padding: 15px;
-    width: 100%;
-    border: none;
-    border-radius: 5px;
+    margin: 0 10px;
     font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
   }
   
-  .btn:hover {
-    background-color: #451150;
+  .nav-item:hover {
+    text-decoration: underline;
   }
   
-  .btn-big {
-    font-size: 18px;
-  }
-  
-  /* Link */
-  p {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  p a {
-    color: #7c0294;
-    text-decoration: none;
+  .nav-item.active {
     font-weight: bold;
   }
   
-  p a:hover {
-    text-decoration: underline;
+  /* Body - Profil Listesi */
+  .profil-listesi {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+  }
+  
+  /* Profil Kartı */
+  .profil-karti {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 300px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profil-resim {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .profil-bilgi {
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+  }
+  
+  .profil-bilgi h3 {
+    margin: 5px 0;
+  }
+  
+  .incele-button {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    background-color: #800080;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .incele-button:hover {
+    background-color: #660066;
   }
 
-  .footer-summary {
-    background: #3c0147;
-    color: #c2c2c2;
-    height: 50px;
-    width: 100%;
+  /* Profil Butonu */
+.profile-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px;
+}
+
+  /* Dropdown Menü */
+.dropdown-menu {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  padding: 10px;
+  text-align: left;
+  border: none;
+  background: none;
+  color: black;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: lightgray;
+}
+
+/* Logout Butonu */
+.logout {
+  color: red;
+}
+  
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
     text-align: center;
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    padding-top: 20px;
-}
-  
+  }
 
-@media only screen and (max-width: 770px) {
-    header .header-divider {
-        display: none; 
-    }
+  .header-nav {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
 
-    header ul {
-        display: none; 
-        flex-direction: column;
-        background: #9f18c9;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-    }
+  .header-right {
+    margin-top: 10px;
+  }
 
-    header ul.showing {
-        display: flex; 
-    }
+  /* Dropdown menüyü düzelt */
+  .dropdown-menu {
+    top: 45px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+  }
 
-    header ul li {
-        margin: 0;
-        width: 100%;
-        text-align: center;
-    }
+  /* Profil listesi tam genişlik alsın */
+  .profil-listesi {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+  }
 
-    header ul li a {
-        padding: 15px;
-    }
-
-    header .menu-toggle {
-        display: block; 
-    }
-
-    .match-screen-container {
-      height: auto;
-      padding: 1rem;
-    }
-  
-    .match-card {
-      max-width: 100%;
-      min-height: auto;
-      padding: 1rem;
-    }
-  
-    .match-profile-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-    }
-  
-    .image-navigation {
-      padding: 0 20px;
-      top: 50%;
-    }
-  
-    .prev-button, .next-button {
-      padding: 5px;
-      font-size: 25px;
-    }
-  
-    .match-profile-name {
-      font-size: 1rem;
-      margin-block-start: 0.5em;
-      margin-block-end: 0.5em;
-    }
-  
-    .match-profile-bio {
-      font-size: 0.875rem;
-    }
-  
-    .match-button-container {
-      margin-top: 1rem;
-      gap: 0.5rem;
-    }
-  
-    .match-button {
-      width: 40px;
-      height: 40px;
-    }
+  /* Profil kartları tam genişlik alsın */
+  .profil-karti {
+    width: 90%;
+    max-width: 350px;
+  }
 }
 
-@media only screen and (max-width: 749px) {
-    .footer {
-        height: auto;
-    }
-    
-    .footer .footer-content {
-        height: auto;
-        flex-direction: column;
-    }
-    
-    .footer .footer-content .contact-form {
-        padding-bottom: 90px;
-    }
+@media (max-width: 480px) {
+  .header {
+    padding: 10px;
+  }
 
-    .footer .footer-content .contact-form .contact-btn {
-        width: 100%;
-    }
+  .header-nav {
+    gap: 8px;
+  }
+
+  .profil-karti {
+    width: 100%;
+    max-width: 320px;
+    padding: 10px;
+  }
+
+  .profil-resim {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .incele-button {
+    font-size: 14px;
+    padding: 8px;
+  }
 }
