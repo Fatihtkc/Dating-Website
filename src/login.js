@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './css/style.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'; 
-import AuthForm from './signup.js';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -12,18 +11,27 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Login 
+    navigate('/giriş');
   };
 
   const handleSignup = () => {
     navigate('/signup');
   };
 
+  const handleLogoClick = () => {
+    navigate("/index"); 
+  };
+
+  const handleForgotPassword = () => {
+    navigate('/forgottenPassword');
+  };
+
+
   return (
     <div>
       <header>
       <div className="logo">
-        <h1 className="logo-text"><span>Soul</span>M</h1>
+        <h1 className="logo-text" onClick={handleLogoClick} style={{ cursor: "pointer" }}><span>Soul</span>M</h1>
       </div>
     </header>
 
@@ -50,6 +58,9 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <button type="button" className="forgot-password-btn" onClick={handleForgotPassword}>
+              Forgotten Password?
+            </button>
           </div>
           <div>
             <button type="submit" className="btn btn-big">Login</button>
@@ -60,7 +71,6 @@ const Login = () => {
       <div className="footer-summary">
         &copy; SoulM.com | Designed by Group 19
      </div>
-      {/* ................ */}
     </div>
   );
 };
