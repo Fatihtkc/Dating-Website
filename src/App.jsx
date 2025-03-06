@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./css/style.css";
+import "./css/modstyle.css";
 import Header from "./moderator/Header";
 import Approves from "./moderator/Approves/Approves";
 import Complaints from "./moderator/Complaints/Complaints";

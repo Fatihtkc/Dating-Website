@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import "../css/style.css";
+import "../css/modstyle.css";
 
 const Header = () => {
   const [menuAcik, setMenuAcik] = useState(false);

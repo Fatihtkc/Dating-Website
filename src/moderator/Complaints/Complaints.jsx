@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../../css/style.css";
+import "../../css/modstyle.css";
 import "../../css/Complaints.css";
 
 const complaints = [
