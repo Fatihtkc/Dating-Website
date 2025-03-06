@@ -5,7 +5,7 @@ import Header from "./moderator/Header";
 import Approves from "./moderator/Approves/Approves";
 import Complaints from "./moderator/Complaints/Complaints";
 import ComplaintDetail from "./moderator/Complaints/ComplaintDetail";
-import ProfilePage from "./ProfilePage";
+import ProfilePage from "./moderator/ProfilePage";
 
 const Profile = ({ id }) => <h1>Profil Sayfası - ID: {id}</h1>;
 const LoginPage = () => <h1>Giriş Sayfası</h1>;
