@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaBars } from "react-icons/fa";
 import './css/style.css';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useLocation} from 'react-router-dom';
@@ -59,7 +59,10 @@ const Header = ({ likedProfiles }) => {
         <h1 className="logo-text" onClick={handleLogoClick} style={{ cursor: "pointer" }}>SoulM</h1>
       </div>
       <div className="header-divider"></div>
-      <ul className="menu">
+      <div className="menu-icon" onClick={toggleMenu}>
+        <FaBars />
+      </div>
+      <ul className={`menu ${isMenuOpen ? 'open' : ''}`}>
         <li><a href="#" onClick={goToMatchScreen}>Matches</a></li>
         <li><a href="#" onClick={goToMessagesScreen}>Messages</a></li>
         <li><a href="#" onClick={goToLikesPage} >Likes</a></li>

@@ -42,7 +42,7 @@ const LikesPage = () => {
     <>
       <header>
          <button className="back-button3" onClick={handleBack}>
-              <FaArrowLeft style={{ marginRight: "5px" }} />
+              <FaArrowLeft style={{ marginRight: "5px", marginTop:"10px" }} />
          </button>
          <div className="logo">
               <h1 className="logo-text" onClick={handleLogoClick} style={{ cursor: "pointer" }}>SoulM</h1>

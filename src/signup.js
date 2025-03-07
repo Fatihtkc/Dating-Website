@@ -60,6 +60,7 @@ const AuthForm = () => {
               <input
                 type="text"
                 name="username"
+                autocomplete="off"
                 className="text-input"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -71,6 +72,7 @@ const AuthForm = () => {
               <input
                 type="email"
                 name="email"
+                autocomplete="off"
                 className="text-input"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}

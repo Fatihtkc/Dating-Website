@@ -48,7 +48,7 @@
 
   /* Kullanıcıyı Banla Butonu */
     .ban-user-button {
-        background: #800080; /* Mor arka plan */
+        background: #7A52A1; /* Mor arka plan */
         color: white;
         border: none;
         padding: 10px 15px;
@@ -67,7 +67,7 @@
 
     /* Kullanıcı bilgileri */
     .user-info-label {
-        color: #800080;
+        color: #7A52A1;
         font-weight: bold;
         display: block;
         margin-top: 5px;
@@ -121,7 +121,7 @@
   }
   
   .delete-complaint-button {
-    background: #800080;
+    background: #7A52A1;
     color: #fff;
     border: none;
     padding: 10px 15px;

@@ -52,6 +52,7 @@ const EnterCode = () => {
               className="form-input"
               type="text"
               id="code"
+              autocomplete="off"
               value={code}
               onChange={(e) => setCode(e.target.value)}
               maxLength={6}

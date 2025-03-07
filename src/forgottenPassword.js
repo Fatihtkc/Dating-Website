@@ -32,9 +32,6 @@ const ForgottenPassword = () => {
       </header>
 
     <div className="forgot-password-container">
-      <div className="forgot-logo"> 
-        <h2 className="forgot-logo-text">SoulM</h2>
-      </div>
 
       <div className="forgot-password-box">
         <h2 className="forgot-password-title">Request Password</h2>
@@ -49,6 +46,7 @@ const ForgottenPassword = () => {
             <input
               className="form-input"
               type="email"
+              autocomplete="off"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}

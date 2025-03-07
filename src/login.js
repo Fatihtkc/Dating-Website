@@ -68,6 +68,7 @@ const Login = () => {
             <input
               type="text"
               name="username"
+              autocomplete="off"
               className="text-input"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
