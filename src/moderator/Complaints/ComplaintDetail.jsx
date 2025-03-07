@@ -9,7 +9,7 @@ const ComplaintDetail = () => {
   const complaint = {
     id: id,
     reason:
-      "Bu kullanıcı uygunsuz davranışlar sergiledi ve spam mesajlar gönderiyor. Açıklama detayları burada yer alabilir. (Detaylı açıklama metni...)",
+      "This user has been behaving inappropriately and sending spam messages. Explanation details can be found here. (Detailed explanation text...)",
     images: ["/a.png", "/b.png", "/a.png"],
     owner: {
       id: 2,
@@ -68,7 +68,7 @@ const ComplaintDetail = () => {
           className="complaint-owner-box clickable"
           onClick={() => navigate(`/profile/${complaint.owner.id}`)}
         >
-          <h3>Şikayet Sahibi</h3>
+          <h3>Complainant</h3>
           <div className="owner-info">
             <img
               src={complaint.owner.image}
@@ -76,7 +76,7 @@ const ComplaintDetail = () => {
               className="profile-pic-square"
             />
             <p>
-              <span className="user-info-label">İsim Soyisim:</span>{" "}
+              <span className="user-info-label">Name Surname:</span>{" "}
               <span className="user-info-value">{complaint.owner.name}</span>
             </p>
             <p>
@@ -84,7 +84,7 @@ const ComplaintDetail = () => {
               <span className="user-info-value">{complaint.owner.email}</span>
             </p>
             <p>
-              <span className="user-info-label">Telefon:</span>{" "}
+              <span className="user-info-label">Phone:</span>{" "}
               <span className="user-info-value">{complaint.owner.phone}</span>
             </p>
           </div>
@@ -93,7 +93,7 @@ const ComplaintDetail = () => {
           className="complaint-target-box clickable"
           onClick={() => navigate(`/profile/${complaint.target.id}`)}
         >
-          <h3>Şikayet edilen hesap</h3>
+          <h3>Person complained about</h3>
           <div className="target-info">
             <img
               src={complaint.target.image}
@@ -101,7 +101,7 @@ const ComplaintDetail = () => {
               className="profile-pic-square"
             />
             <p>
-              <span className="user-info-label">İsim Soyisim:</span>{" "}
+              <span className="user-info-label">Name Surname:</span>{" "}
               <span className="user-info-value">{complaint.target.name}</span>
             </p>
             <p>
@@ -109,11 +109,11 @@ const ComplaintDetail = () => {
               <span className="user-info-value">{complaint.target.email}</span>
             </p>
             <p>
-              <span className="user-info-label">Telefon:</span>{" "}
+              <span className="user-info-label">Phone:</span>{" "}
               <span className="user-info-value">{complaint.target.phone}</span>
             </p>
             <button className="ban-user-button" onClick={handleBanUser}>
-              Kullanıcıyı Banla
+              Ban User
             </button>
           </div>
         </div>
@@ -138,7 +138,7 @@ const ComplaintDetail = () => {
             className="delete-complaint-button"
             onClick={handleDeleteComplaint}
           >
-            Şikayeti Sil
+            Delete Complaint
           </button>
         </div>
       </div>

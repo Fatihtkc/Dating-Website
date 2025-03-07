@@ -2,11 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./css/modstyle.css";
 import Header from "./moderator/Header";
+import HeaderKManager from "./HeaderManager";
 import Approves from "./moderator/Approves/Approves";
 import Complaints from "./moderator/Complaints/Complaints";
 import ComplaintDetail from "./moderator/Complaints/ComplaintDetail";
 import ProfilePage from "./moderator/Profiles/ProfilePage";
 import ProfileDetails from "./moderator/Profiles/ProfileDetails";
+import Manager from "./Manager";
 
 const LoginPage = () => <h1>Giriş Sayfası</h1>;
 
@@ -23,6 +25,7 @@ function App() {
           <Route path="/profile/:id" element={<ProfileDetails />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/manager" element={<Manager />} />
         </Routes>
       </div>
     </Router>

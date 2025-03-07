@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import "../css/modstyle.css";
+import "./css/modstyle.css";
 
 const Header = () => {
   const [menuAcik, setMenuAcik] = useState(false);
@@ -38,14 +38,6 @@ const Header = () => {
         </div>
         </Link>
       </div>
-      <nav className="header-nav">
-        <Link to="/complaints" className={`nav-item ${location.pathname === "/complaints" ? "active" : ""}`}>
-          Complaints
-        </Link>
-        <Link to="/approves" className={`nav-item ${location.pathname === "/approves" ? "active" : ""}`}>
-          Approves
-        </Link>
-      </nav>
       <div className="header-right" ref={menuRef}>
         <button className="profile-button" onClick={() => setMenuAcik(!menuAcik)}>
           Profile ▼

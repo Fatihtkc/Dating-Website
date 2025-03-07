@@ -48,42 +48,6 @@ html, body {
 }
 
 
-header {
-  background: #7c0294;
-  height: 70px;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content:center;
-  position: relative;
-}
-
-/* Logo ve başlık */
-header .logo {
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
-}
-
-header .logo-text {
-  font-family: 'Dosis', serif;
-  font-size: 40px;
-  color: #000000;
-  margin: 0;
-}
-
-header .logo-text span {
-  color: #ffffff;
-}
-
-header .header-divider {
-  height: 40px; 
-  width: 5px; 
-  background: #ffffff;
-  border-radius: 2px;
-  margin: 0 20px;
-}
-
 /* Admin Wrapper for Layout */
 .admin-wrapper {
   display: flex;

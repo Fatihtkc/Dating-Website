@@ -6,15 +6,15 @@ import "../../css/Complaints.css";
 const complaints = [
   {
     id: 1,
-    sikayetEden: { id: 1, ad: "Ahmet Yılmaz", resim: "/a.png" },
-    sikayetEdilen: { id: 2, ad: "Ayşe Demirsssssssssssssssssssssssssssssssssssssssssssssssss", resim: "/b.png" },
-    neden: "Uygunsuz mesajlar göndermeDemirsssssssssssssssssssssssssssssssssssssssssssssssss",
+    Complainant: { id: 1, ad: "Ahmet Yılmaz", image: "/a.png" },
+    complainedPerson: { id: 2, ad: "Ayşe Demir", image: "/b.png" },
+    reason: "Sending inappropriate messages",
   },
   {
     id: 2,
-    sikayetEden: { id: 1, ad: "Mehmet Kaya", resim: "/a.png" },
-    sikayetEdilen: { id: 3, ad: "Elif Çelik", resim: "/a.png" },
-    neden: "Rahatsız edici davranış",
+    Complainant: { id: 1, ad: "Mehmet Kaya", image: "/a.png" },
+    complainedPerson: { id: 3, ad: "Elif Çelik", image: "/a.png" },
+    reason: "Disturbing behavior",
   },
 ];
 
@@ -23,42 +23,42 @@ const Complaints = () => {
 
   return (
     <div className="complaints-container">
-    {complaints.map((sikayet) => (
+    {complaints.map((complaint) => (
       <div
-        key={sikayet.id}
+        key={complaint.id}
         className="complaint-box"
-        onClick={() => navigate(`/complaints/${sikayet.id}`)}
+        onClick={() => navigate(`/complaints/${complaint.id}`)}
       >
         <div
           className="user-info"
           onClick={(e) => {
             e.stopPropagation(); // Şikayet sayfasına gitmesini engelle
-            navigate(`/profile/${sikayet.sikayetEden.id}`);
+            navigate(`/profile/${complaint.Complainant.id}`);
           }}
         >
           <img
-            src={sikayet.sikayetEden.resim}
-            alt={sikayet.sikayetEden.ad}
+            src={complaint.Complainant.image}
+            alt={complaint.Complainant.ad}
             className="profile-pic"
           />
-          <span className="username">{sikayet.sikayetEden.ad}</span>
+          <span className="username">{complaint.Complainant.ad}</span>
         </div>
         <span className="complaint-text">➜</span>
         <div
           className="user-info"
           onClick={(e) => {
             e.stopPropagation(); // Şikayet sayfasına gitmesini engelle
-            navigate(`/profile/${sikayet.sikayetEdilen.id}`);
+            navigate(`/profile/${complaint.complainedPerson.id}`);
           }}
         >
           <img
-            src={sikayet.sikayetEdilen.resim}
-            alt={sikayet.sikayetEdilen.ad}
+            src={complaint.complainedPerson.image}
+            alt={complaint.complainedPerson.ad}
             className="profile-pic"
           />
-          <span className="username">{sikayet.sikayetEdilen.ad}</span>
+          <span className="username">{complaint.complainedPerson.ad}</span>
         </div>
-        <p className="complaint-reason">{sikayet.neden}</p>
+        <p className="complaint-reason">{complaint.reason}</p>
       </div>
     ))}
   </div>

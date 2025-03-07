@@ -49,6 +49,7 @@
         background: #800080; /* Mor arka plan */
         color: white;
         border: none;
+        font-weight: bold;
         padding: 10px 15px;
         border-radius: 5px;
         cursor: pointer;
@@ -122,6 +123,7 @@
     background: #800080;
     color: #fff;
     border: none;
+    font-weight: bold;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
