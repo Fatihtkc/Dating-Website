@@ -11,7 +11,7 @@ const userMessages = {
 
 function ChatWindow({ selectedChat, setLastMessages }) {
   const [messages, setMessages] = useState([]);
-  const [menuOpen, setMenuOpen] = useState(null); // Menü açık/kapalı kontrolü
+  const [menuOpen, setMenuOpen] = useState(null); // Açık menü takibi
 
   useEffect(() => {
     if (selectedChat) {
@@ -23,17 +23,27 @@ function ChatWindow({ selectedChat, setLastMessages }) {
 
   const sendMessage = () => {
     if (!newMessage.trim()) return;
-    
-    const updatedMessages = [...messages, { id: Date.now(), text: newMessage, sender: "You" }];
+
+    const newMsg = { id: Date.now(), text: newMessage, sender: "You" };
+    const updatedMessages = [...messages, newMsg];
+
     setMessages(updatedMessages);
-    setLastMessages(prev => ({ ...prev, [selectedChat.id]: newMessage }));
     
+    // Sidebar'daki mesajı güncelle ve en üste taşı
+    setLastMessages(prev => {
+      const updatedLastMessages = { ...prev, [selectedChat.id]: newMessage };
+      
+      return Object.fromEntries(
+        Object.entries(updatedLastMessages).sort((a, b) => b[1].timestamp - a[1].timestamp)
+      );
+    });
+
     setNewMessage("");
   };
 
   const deleteMessage = (id) => {
     setMessages(messages.filter(msg => msg.id !== id));
-    setMenuOpen(null); // Menü kapat
+    setMenuOpen(null);
   };
 
   const closeMenu = (e) => {
@@ -51,15 +61,19 @@ function ChatWindow({ selectedChat, setLastMessages }) {
 
   return (
     <div className="chat-window">
+      {/* 📌 Chat Header (Üst Kısım) */}
       <div className="chat-header">
         <img src={selectedChat.image} alt={selectedChat.name} className="profile-pic-large" />
         <h2>{selectedChat.name}</h2>
       </div>
       
+      {/* 📌 Mesajlar Listesi */}
       <div className="messages">
         {messages.map(msg => (
           <div key={msg.id} className={`message ${msg.sender === "You" ? "mine" : "theirs"}`}>
             <p>{msg.text}</p>
+            
+            {/* 📌 Üç Nokta Menüsü */}
             <div className="menu-container">
               <button 
                 className="menu-button" 
@@ -68,7 +82,7 @@ function ChatWindow({ selectedChat, setLastMessages }) {
                 ⋮
               </button>
               {menuOpen === msg.id && (
-                <div className="dropdown-menu">
+                <div className="message-menu">
                   <button onClick={() => deleteMessage(msg.id)}>🗑️ Delete</button>
                 </div>
               )}
@@ -77,8 +91,14 @@ function ChatWindow({ selectedChat, setLastMessages }) {
         ))}
       </div>
       
+      {/* 📌 Mesaj Yazma Kutusu */}
       <div className="message-input">
-        <input type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} placeholder="Type a message..." />
+        <input 
+          type="text" 
+          value={newMessage} 
+          onChange={(e) => setNewMessage(e.target.value)} 
+          placeholder="Type a message..." 
+        />
         <button onClick={sendMessage}>Send</button>
       </div>
     </div>
