@@ -899,6 +899,21 @@ h2 {
     animation: fadeOut 3s ease-in-out forwards;
 }
 
+.notification2 { /* Profile Page için*/
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(60, 219, 28, 0.9);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  animation: fadeOut 3s ease-in-out forwards;
+}
+
 @keyframes fadeOut {
     0% { opacity: 1; }
     80% { opacity: 1; }
@@ -1352,16 +1367,17 @@ h3 {
 /* Enter Code Sayfası */
 .enter-code-container {
   display: flex;
+  margin-top: -70px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #EAE6F2;
+  background-color: #c0b8c5;
 }
 
 .enter-code-box {
   background-color: #fff;
-  padding: 50px;
+  padding: 60px;
   border-radius: 16px;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
   max-width: 400px;
@@ -1459,13 +1475,14 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #EAE6F2;
+  height: 90vh;
+  background-color: #c0b8c5;
 }
 
 .change-password-box {
   background-color: #fff;
   padding: 50px;
+  margin-top: -50px;
   border-radius: 16px;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
   max-width: 400px;

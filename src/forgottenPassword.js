@@ -16,7 +16,7 @@ const ForgottenPassword = () => {
 
   const handleOkClick = () => {
     setShowAlert(false);
-    //navigate("/entercode");
+    navigate("/entercode");
   };
 
   const handleLogoClick = () => {

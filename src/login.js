@@ -6,12 +6,34 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
+
+  const users = [
+    { username: 'manager', password: 'manager123', role: 'manager' },
+    { username: 'moderator', password: 'mod123', role: 'moderator' },
+    { username: 'user', password: 'user123', role: 'user' },
+  ];
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate('/giriş');
+    const user = users.find(
+      (u) => u.username === username && u.password === password
+    );
+
+    if (user) {
+      // Role göre yönlendirme yap
+      if (user.role === 'manager') {
+        navigate('/Manager');
+      } else if (user.role === 'moderator') {
+        navigate('/complaints');
+      } else if (user.role === 'user') {
+        navigate('/giriş');
+      }
+    } else {
+      setErrorMessage('Geçersiz kullanıcı adı veya şifre.');
+    }
   };
 
   const handleSignup = () => {
@@ -38,6 +60,8 @@ const Login = () => {
       <div className="auth-content">
         <form onSubmit={handleSubmit} className="login-form">
           <h2 className="log-title">Login</h2>
+
+          {errorMessage && <p className="error">{errorMessage}</p>}
 
           <div>
             <label>Username</label>

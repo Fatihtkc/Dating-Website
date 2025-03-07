@@ -18,9 +18,17 @@ import PersonalInformation from './PersonalInformation';
 import ProfilePage from './ProfilePage';
 import LikesPage from './likes';
 import ForgotPass from './forgottenPassword';
+import EnterCode from './entercode';
+import ChangePassword from './changepassword';
+import Complaints from "./complaints";
+import Approves from "./approves";
+import ComplaintDetail from "./complaintDetail";
+import ProfilePageForMod from "./profilePageForMod";
+import ProfileDetails from "./profileDetails";
+import Manager from "./Manager";
 import { Card, CardContent } from "./components/ui/card";
 import { Button } from "./components/ui/button";
-import { ChevronLeft, ChevronRight, Heart, X } from 'lucide-react';
+
 
 function MainPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -144,7 +152,15 @@ root.render(
       <Route path="/PersonalInformation" element={<PersonalInformation />} />
       <Route path="/ProfilePage" element={<ProfilePage />} />
       <Route path="/likes" element={<LikesPage />} />
+      <Route path="/approves" element={<Approves />} />
+      <Route path="/complaints" element={<Complaints />} />
+      <Route path="/complaints/:id" element={<ComplaintDetail />} />
       <Route path="/forgottenPassword" element={<ForgotPass />} />
+      <Route path="/entercode" element={<EnterCode />} />
+      <Route path="/changepassword" element={<ChangePassword />} />
+      <Route path="/profilePageForMod" element={<ProfilePageForMod />} />
+      <Route path="/profileDetails" element={<ProfileDetails />} />
+      <Route path="/Manager" element={<Manager />} />
     </Routes>
   </Router>
 );

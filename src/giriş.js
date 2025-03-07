@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; 
 import ReactDOM from 'react-dom/client';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { FaUser } from "react-icons/fa";
 import './css/style.css';
 import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useLocation} from 'react-router-dom';
 import { FaPhone, FaEnvelope, FaLinkedin, FaInstagram, FaDiscord } from 'react-icons/fa';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -134,6 +135,18 @@ const MatchScreen = ({ likedProfiles, setLikedProfiles }) => {
   const [isReportModalOpen, setIsReportModalOpen] = useState(false);
   const [reportMessage, setReportMessage] = useState("");
   const [reportReason, setReportReason] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.state?.passwordChanged) {
+      const timer = setTimeout(() => {
+        navigate("/giriş", { state: {} }); // state'i temizle
+      }, 3000); // Bildirimi 3 saniye göster
+
+      return () => clearTimeout(timer); // Cleanup
+    }
+  }, [location, navigate]);
 
   const profiles = [
     { 
@@ -362,6 +375,11 @@ const MatchScreen = ({ likedProfiles, setLikedProfiles }) => {
 
   return (
     <div className="match-screen-container">
+        {location.state?.passwordChanged && (
+        <div className="notification2">
+          Password changed successfully!
+        </div>
+      )}
       <div className={`match-screen-content ${selectedProfile ? 'slide-left' : ''}`}>
         <div className="match-card">
           <div className="profile-images">
