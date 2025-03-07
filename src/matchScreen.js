@@ -1,6 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./css/match.css";
+import { 
+  FaUser, 
+  FaInfoCircle, 
+  FaAlignLeft, 
+  FaVenusMars, 
+  FaHeart, 
+  FaMapMarkerAlt, 
+  FaSmokingBan, 
+  FaBeer, 
+  FaCheck,
+  FaArrowLeft
+} from "react-icons/fa";
 
 function MatchScreen() {
   const navigate = useNavigate();
@@ -29,13 +41,21 @@ function MatchScreen() {
     navigate("/index");
   };
 
+  const handleBack = () => {
+    navigate("/giriş"); 
+  };
+
   return (
     <>
-<header>
-        <div className="logo">
-          <h1 className="logo-text" onClick={handleLogoClick} style={{ cursor: "pointer" }}>SoulM</h1>
-        </div>
-      </header>
+   <header>
+   <button className="back-button3" onClick={handleBack}>
+        <FaArrowLeft style={{ marginRight: "5px" }} />
+   </button>
+   <div className="logo">
+        <h1 className="logo-text" onClick={handleLogoClick} style={{ cursor: "pointer" }}>SoulM</h1>
+   </div>
+</header>
+
     <div className="page-container3">
     <h1>Matched Profiles</h1>
       <div className="match2-list">

@@ -3,6 +3,18 @@ import { useLocation, useNavigate } from "react-router-dom";
 import ChatList from "./chatList";
 import ChatWindow from "./chatWindow";
 import "./css/chat.css";
+import { 
+  FaUser, 
+  FaInfoCircle, 
+  FaAlignLeft, 
+  FaVenusMars, 
+  FaHeart, 
+  FaMapMarkerAlt, 
+  FaSmokingBan, 
+  FaBeer, 
+  FaCheck,
+  FaArrowLeft
+} from "react-icons/fa";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -51,10 +63,17 @@ function ChatScreen() {
     navigate("/index"); 
   };
 
+  const handleBack = () => {
+    navigate("/giriş"); 
+  };
+
   return (
     <div>
       {/* Top Header Bar */}
       <div className="chat-header3">
+        <button className="back-button3" onClick={handleBack}>
+                <FaArrowLeft style={{ marginRight: "5px" }} />
+              </button>
         <span>📩 Messages</span>
         <h1 className="logo-text" onClick={handleLogoClick} style={{ cursor: "pointer" }}><span>Soul</span>M</h1>
       </div>

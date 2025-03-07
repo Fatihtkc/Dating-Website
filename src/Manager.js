@@ -5,7 +5,7 @@ import "./css/Manager.css";
 const initialEmployees = [
   {
     id: 1,
-    photo: "a.png", // örnek fotoğraf yolu
+    photo: "a.png",
     fullName: "Ahmet Yılmaz",
     email: "ahmet@example.com",
     phone: "0555 123 45 67",
@@ -23,7 +23,6 @@ const initialEmployees = [
     startdate: "2015-02-10",
     role: "moderator",
   },
-  // İstediğiniz kadar çalışan ekleyebilirsiniz.
 ];
 
 const ManagerPage = () => {
@@ -110,7 +109,7 @@ const ManagerPage = () => {
         </button>
         {menuAcik && (
           <div className="dropdown-menu">
-            <Link to="/profilePageForMod" className="dropdown-item">Profilini Gör</Link>
+            <Link to="/profilePageForMod" className="dropdown-item">View Profile</Link>
             <button className="dropdown-item logout" onClick={handleLogout}>
               Logout
             </button>

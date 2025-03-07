@@ -125,12 +125,12 @@ const ProfileDetails = () => {
 <header>
         <div className="logo">
           <h1 className="logo-text" onClick={handleLogoClick} style={{ cursor: "pointer" }}>SoulM</h1>
+          <button className="back-button3" onClick={() => navigate(-1)}>
+        <FaArrowLeft style={{ marginRight: "5px" }} />
+      </button>
         </div>
       </header>
     <div className="profile2-details-page">
-      <button className="back-button" onClick={() => navigate(-1)}>
-        <FaArrowLeft style={{ marginRight: "5px" }} /> Back
-      </button>
       <div className="profile2-details-container">
         <div className="details-card">
           {/* Sol Kolon: Image Slider */}

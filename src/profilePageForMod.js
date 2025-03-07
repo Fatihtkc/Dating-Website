@@ -1,6 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./css/profilePageForMod.css";
+import { 
+  FaUser, 
+  FaInfoCircle, 
+  FaAlignLeft, 
+  FaVenusMars, 
+  FaHeart, 
+  FaMapMarkerAlt, 
+  FaSmokingBan, 
+  FaBeer, 
+  FaCheck,
+  FaArrowLeft
+} from "react-icons/fa";
 
 const ProfilePage = () => {
 const navigate = useNavigate();
@@ -68,12 +80,15 @@ const navigate = useNavigate();
   return (
     <>
     <header>
-            <div className="logo">
-              <h1 className="logo-text" onClick={handleLogoClick} style={{ cursor: "pointer" }}>SoulM</h1>
+           <div className="logo">
+                <h1 className="logo-text" onClick={handleLogoClick} style={{ cursor: "pointer" }}>SoulM</h1>
+                <button className="back-button3" onClick={() => navigate(-1)}>
+              <FaArrowLeft style={{ marginRight: "5px" }} />
+            </button>
             </div>
           </header>
     <div className="page-container">
-      <div className="profile2-container">
+      <div className="profile4-container">
         <h1 className="profile2-title">Your Account</h1>
         <div className="profile2-content">
           {/* Sol: Profil Resmi */}

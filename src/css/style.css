@@ -77,6 +77,10 @@ header {
     position: relative;
 }
 
+header .back-button3 {
+  align-self: center; /* Header içinde dikey hizalama */
+}
+
 /* Logo ve başlık */
 header .logo {
     display: flex;

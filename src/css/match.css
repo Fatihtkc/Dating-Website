@@ -45,6 +45,20 @@
     transition: background 0.3s ease-in-out;
   }
   
+  header .back-button3 {
+    align-self: flex-start;
+    position: absolute;
+    left: 10px;
+    justify-content: left !important;
+    margin-top: 25px !important;
+    background: none;
+    border: none;
+    color: purple;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  
   .match2-card button:hover {
     background: #451150;
   }
