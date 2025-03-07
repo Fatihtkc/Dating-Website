@@ -2,59 +2,82 @@
 
 /* General Styles */
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f3edf9; /* Light purple */
-  }
-  
-  /* Top Header (SoulM Logo) */
-  .header {
-    width: 100%;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #7a3db8;
-  }
-  
-  .logo span {
-    color: #ff9fdd;
-  }
-  
-  /* Page Content */
-  .page-container {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  h2 {
-    color: #7a3db8;
-  }
-  
-  .button-group {
-    margin-top: 20px;
-  }
-  
-  button {
-    background-color: #7a3db8;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    margin: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  button:hover {
-    background-color: #5a2d8a;
-  }
-  
+  margin: 0;
+  font-family: 'Lora', serif;
+  background-color: #f3edf9; /* Light Purple */
+}
+
+/* Header */
+.header {
+  width: 100%;
+  padding: 20px;
+  background-color: #7c0294;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+.logo span {
+  color: #ff9fdd;
+}
+
+/* Main Page Content */
+.page-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+h2 {
+  color: #ffffff;
+  font-size: 26px;
+}
+
+.button-group {
+  margin-top: 20px;
+}
+
+button {
+  background-color: #7c0294;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  margin: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #451150;
+}
+
+/* Footer */
+.footer {
+  background: #7c0294;
+  color: #c999d8;
+  height: 100px;
+  text-align: center;
+  padding-top: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer .footer-bottom {
+  background: #3c0147;
+  color: #c2c2c2;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+}

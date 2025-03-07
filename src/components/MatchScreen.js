@@ -6,7 +6,11 @@ function MatchScreen() {
   const navigate = useNavigate();
 
   const [matches, setMatches] = useState([
-    { id: 1, name: "Emma", image: "https://via.placeholder.com/100" }
+    { id: 1, name: "Emma", image: "https://randomuser.me/api/portraits/women/1.jpg" },
+    { id: 2, name: "Liam", image: "https://randomuser.me/api/portraits/men/1.jpg" },
+    { id: 3, name: "Olivia", image: "https://randomuser.me/api/portraits/women/2.jpg" },
+    { id: 4, name: "Noah", image: "https://randomuser.me/api/portraits/men/2.jpg" },
+    { id: 5, name: "Sophia", image: "https://randomuser.me/api/portraits/women/3.jpg" }
   ]);
 
   const removeMatch = (id) => {
@@ -18,7 +22,7 @@ function MatchScreen() {
   };
 
   const openChat = (user) => {
-    navigate("/messages", { state: { user } });
+    navigate(`/messages?user=${user.name}`); // 🛠️ Sends the selected user
   };
 
   return (
@@ -30,11 +34,13 @@ function MatchScreen() {
         ) : (
           matches.map((match) => (
             <div key={match.id} className="match-card">
-              <img src={match.image} alt={match.name} />
+              <img src={match.image} alt={match.name} className="match-image" />
               <p>{match.name}</p>
-              <button onClick={() => openChat(match.name)}>💬 Message</button>
-              <button onClick={() => removeMatch(match.id)}>❌ Remove</button>
-              <button onClick={() => reportUser(match.name)}>🚨 Report</button>
+              <div className="button-group">
+                <button onClick={() => openChat(match)}>💬 Message</button>
+                <button onClick={() => removeMatch(match.id)}>❌ Remove</button>
+                <button onClick={() => reportUser(match.name)}>🚨 Report</button>
+              </div>
             </div>
           ))
         )}

@@ -1,49 +1,64 @@
-import React, { useState } from "react";
-import "../styles/chat.css"; 
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import ChatList from "./ChatList";
+import ChatWindow from "./ChatWindow";
+import "../styles/chat.css";
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
 function ChatScreen() {
-  const [messages, setMessages] = useState([
-    { id: 1, text: "Hey! How are you?", sender: "Emma" }
-  ]);
+  const query = useQuery();
+  const userFromMatch = query.get("user");
 
-  const [reply, setReply] = useState("");
+  const [selectedChat, setSelectedChat] = useState(null);
+  const [lastMessages, setLastMessages] = useState({
+    1: "Hey! How are you?",
+    2: "Let’s meet up later!",
+    3: "Did you see my message?",
+    4: "Happy Birthday!",
+    5: "Let’s go on a trip!"
+  });
 
-  const deleteMessage = (id) => {
-    setMessages(messages.filter(msg => msg.id !== id));
-  };
+  // List of users with profile pictures
+  const users = [
+    { id: 1, name: "Emma", image: "https://randomuser.me/api/portraits/women/1.jpg" },
+    { id: 2, name: "Liam", image: "https://randomuser.me/api/portraits/men/1.jpg" },
+    { id: 3, name: "Olivia", image: "https://randomuser.me/api/portraits/women/2.jpg" },
+    { id: 4, name: "Noah", image: "https://randomuser.me/api/portraits/men/2.jpg" },
+    { id: 5, name: "Sophia", image: "https://randomuser.me/api/portraits/women/3.jpg" }
+  ];
 
-  const reportUser = (sender) => {
-    alert(`User ${sender} has been reported.`);
-  };
+  useEffect(() => {
+    if (userFromMatch) {
+      const newChatId = Date.now(); // Create a unique ID for the new chat
 
-  const answerMessage = () => {
-    if (!reply.trim()) return;
-    setMessages([...messages, { id: Date.now(), text: reply, sender: "You" }]);
-    setReply("");
-  };
+      // Find the user's profile image if available, else use a default one
+      const matchedUser = users.find(user => user.name === userFromMatch);
+      const userImage = matchedUser ? matchedUser.image : "https://via.placeholder.com/50";
+
+      setSelectedChat({ id: newChatId, name: userFromMatch, image: userImage });
+
+      setLastMessages((prev) => ({
+        ...prev,
+        [newChatId]: "No messages yet" // 🛠️ Fix: Show "No messages yet" in sidebar
+      }));
+    }
+  }, [userFromMatch]);
 
   return (
-    <div className="page-container">
-      <h2>📩 Messages</h2>
-      <div className="chat-box">
-        {messages.map((msg) => (
-          <div key={msg.id} className="message">
-            <p><strong>{msg.sender}:</strong> {msg.text}</p>
-            <div className="message-actions">
-              <button onClick={() => deleteMessage(msg.id)}>🗑️ Delete</button>
-              <button onClick={() => reportUser(msg.sender)}>🚨 Report</button>
-            </div>
-          </div>
-        ))}
+    <div>
+      {/* Top Header Bar */}
+      <div className="chat-header">
+        <span>📩 Messages</span>
+        <span className="soulm-text">SoulM</span> 
       </div>
-      <div className="reply-box">
-        <input 
-          type="text" 
-          value={reply} 
-          onChange={(e) => setReply(e.target.value)} 
-          placeholder="Type your answer..."
-        />
-        <button onClick={answerMessage}>💬 Answer</button>
+  
+      {/* Chat Content */}
+      <div className="chat-content">
+        <ChatList selectedChat={selectedChat} setSelectedChat={setSelectedChat} lastMessages={lastMessages} />
+        <ChatWindow selectedChat={selectedChat} setLastMessages={setLastMessages} />
       </div>
     </div>
   );
