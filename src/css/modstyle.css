@@ -109,7 +109,7 @@ body, html, .container {
 .delete-button {
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
   font-size: 16px;
   width: 45%;

@@ -59,8 +59,8 @@ const PersonalityTest = () => {
         </button>
       </header>
 
-    <div className="page-container">
-      <div className="container">
+    <div className="page-container2">
+      <div className="container2">
         <h1 className="title">Personality Test</h1>
 
         <div className="progress-bar-container">

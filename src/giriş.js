@@ -10,8 +10,9 @@ import { FaPhone, FaEnvelope, FaLinkedin, FaInstagram, FaDiscord } from 'react-i
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Login from './login.js';
-import Index from './index.js';
 import LikesPage from './likes.js';
+import ChatScreen from "./chatScreen";
+import MatchScreen from "./matchScreen";
 import AuthForm from './signup.js';
 import { X, Heart, Info, FlagTriangleLeft} from 'lucide-react';
 import { FaHeart } from "react-icons/fa";
@@ -44,6 +45,14 @@ const Header = ({ likedProfiles }) => {
     navigate('/likes', { state: { likedProfiles } }); 
   };
 
+  const goToMatchScreen = () => {
+    navigate('/matchScreen'); 
+  };
+
+  const goToMessagesScreen = () => {
+    navigate('/chatScreen'); 
+  };
+
   return (
     <header>
       <div className="logo">
@@ -51,8 +60,8 @@ const Header = ({ likedProfiles }) => {
       </div>
       <div className="header-divider"></div>
       <ul className="menu">
-        <li><a href="#">Matches</a></li>
-        <li><a href="#">Messages</a></li>
+        <li><a href="#" onClick={goToMatchScreen}>Matches</a></li>
+        <li><a href="#" onClick={goToMessagesScreen}>Messages</a></li>
         <li><a href="#" onClick={goToLikesPage} >Likes</a></li>
       </ul>
       <div className="profile-container">
@@ -128,7 +137,7 @@ const Footer = () => {
   );
 };
 
-const MatchScreen = ({ likedProfiles, setLikedProfiles }) => {
+const LikesScreen = ({ likedProfiles, setLikedProfiles }) => {
   const [currentProfileIndex, setCurrentProfileIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedProfile, setSelectedProfile] = useState(null);
@@ -486,13 +495,15 @@ const Giriş = () => {
         <Route path="/" element={
           <>
             <Header likedProfiles={likedProfiles} />
-            <MatchScreen likedProfiles={likedProfiles} setLikedProfiles={setLikedProfiles} />
+            <LikesScreen likedProfiles={likedProfiles} setLikedProfiles={setLikedProfiles} />
             <Footer />
           </>
         } />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<AuthForm isRegister={true} />} />
         <Route path="/likes" element={<LikesPage />} />
+        <Route path="/matchScreen" element={<MatchScreen />} />
+        <Route path="/chatScreen" element={<ChatScreen />} />
       </Routes>
     </div>
   );

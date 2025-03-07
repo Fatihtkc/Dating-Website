@@ -76,7 +76,7 @@ const ProfilePage = () => {
           <h1 className="logo-text" onClick={handleLogoClick} style={{ cursor: "pointer" }}>SoulM</h1>
         </div>
       </header>
-        <div className="page-container">
+        <div className="page-container2">
             <div className="profile-container2">
                 <h1 className="profile-title2">Your Account</h1>
                 {notification && <div className="notification">{notification}</div>}
@@ -160,8 +160,8 @@ const ProfilePage = () => {
 
                 {/* Butonlar */}
                 <div className="profile-buttons">
-                    <button className="profile-button" onClick={handleSave}>Save Changes</button>
-                    <button className="profile-button" onClick={handleGoHome}>Go Back to Home</button>
+                    <button className="profile-button2" onClick={handleSave}>Save Changes</button>
+                    <button className="profile-button2" onClick={handleGoHome}>Go Back to Home</button>
                 </div>
             </div>
             <div className="footer-summary">

@@ -17,6 +17,8 @@ import PersonalityTest from './PersonalityTest';
 import PersonalInformation from './PersonalInformation';
 import ProfilePage from './ProfilePage';
 import LikesPage from './likes';
+import ChatScreen from "./chatScreen";
+import MatchScreen from "./matchScreen";
 import ForgotPass from './forgottenPassword';
 import EnterCode from './entercode';
 import ChangePassword from './changepassword';
@@ -151,6 +153,8 @@ root.render(
       <Route path="/personality-test" element={<PersonalityTest />} />
       <Route path="/PersonalInformation" element={<PersonalInformation />} />
       <Route path="/ProfilePage" element={<ProfilePage />} />
+      <Route path="/matchScreen" element={<MatchScreen />} />
+      <Route path="/chatScreen" element={<ChatScreen />} />
       <Route path="/likes" element={<LikesPage />} />
       <Route path="/approves" element={<Approves />} />
       <Route path="/complaints" element={<Complaints />} />
@@ -159,7 +163,7 @@ root.render(
       <Route path="/entercode" element={<EnterCode />} />
       <Route path="/changepassword" element={<ChangePassword />} />
       <Route path="/profilePageForMod" element={<ProfilePageForMod />} />
-      <Route path="/profileDetails" element={<ProfileDetails />} />
+      <Route path="/profile/:id" element={<ProfileDetails />} />
       <Route path="/Manager" element={<Manager />} />
     </Routes>
   </Router>

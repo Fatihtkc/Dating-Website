@@ -106,7 +106,7 @@ useEffect(() => {
             </button>
             {menuAcik && (
               <div className="dropdown-menu">
-                <Link to="/profile" className="dropdown-item">Profilini Gör</Link>
+                <Link to="/profilePageForMod" className="dropdown-item">Profilini Gör</Link>
                 <button className="dropdown-item logout" onClick={handleLogout}>
                   Logout
                 </button>

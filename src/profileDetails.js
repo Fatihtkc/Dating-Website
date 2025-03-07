@@ -50,6 +50,23 @@ const detailProfiles = [
       "https://images.pexels.com/photos/774095/pexels-photo-774095.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     ],
   },
+  { 
+    id: 3, 
+    name: 'Daniel Miller', 
+    age: 29, 
+    shorterbio: 'Entrepreneur and adventure seeker.',
+    bio: 'I’m an entrepreneur who’s always chasing the next big idea. I’m looking for someone who’s equally ambitious but knows how to unwind after a long day. I value a partner who’s supportive but isn’t afraid to challenge me to be better.', 
+    gender: 'Male',
+    relationshipType: 'Casual Dating',
+    location: 'Seattle, Washington',
+    smokes: 'false',
+    drinks: 'Yes',
+    approved: false,
+    imgs: [
+      'https://images.pexels.com/photos/1819483/pexels-photo-1819483.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/1172207/pexels-photo-1172207.jpeg'
+    ]
+  },
 ];
 
 const ProfileDetails = () => {
@@ -110,20 +127,20 @@ const ProfileDetails = () => {
           <h1 className="logo-text" onClick={handleLogoClick} style={{ cursor: "pointer" }}>SoulM</h1>
         </div>
       </header>
-    <div className="profile-details-page">
+    <div className="profile2-details-page">
       <button className="back-button" onClick={() => navigate(-1)}>
         <FaArrowLeft style={{ marginRight: "5px" }} /> Back
       </button>
-      <div className="profile-details-container">
+      <div className="profile2-details-container">
         <div className="details-card">
           {/* Sol Kolon: Image Slider */}
-          <div className="image-container">
-            <div className="image-slider">
+          <div className="image2-container">
+            <div className="image2-slider">
               <button className="arrow-button left" onClick={handlePrevImage}>◀</button>
               <img
                 src={profile.imgs[currentImageIndex]}
                 alt={profile.name}
-                className="profile-detail-img"
+                className="profile2-detail-img"
               />
               <button className="arrow-button right" onClick={handleNextImage}>▶</button>
             </div>
@@ -224,6 +241,9 @@ const ProfileDetails = () => {
         </div>
       )}
     </div>
+    <div className="footer-summary2">
+        &copy; SoulM.com | Designed by Group 19
+     </div>
     </>
   );
 };

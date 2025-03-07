@@ -50,7 +50,7 @@ const PersonalInformation = () => {
           <h1 className="logo-text" onClick={handleLogoClick} style={{ cursor: "pointer" }}>SoulM</h1>
         </div>
       </header>
-    <div className="page-container">
+    <div className="page-container2">
 
       <div className="form-container">
         <h1 className="form-title">Tell us more about yourself</h1>

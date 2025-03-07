@@ -7,13 +7,19 @@ const complaints = [
   {
     id: 1,
     Complainant: { id: 1, ad: "Ahmet Yılmaz", image: "/a.png" },
-    complainedPerson: { id: 2, ad: "Ayşe Demir", image: "/b.png" },
+    complainedPerson: { id: 2, ad: "Ayşe Demir", image: "https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
     reason: "Sending inappropriate messages",
   },
   {
     id: 2,
-    Complainant: { id: 1, ad: "Mehmet Kaya", image: "/a.png" },
-    complainedPerson: { id: 3, ad: "Elif Çelik", image: "/a.png" },
+    Complainant: { id: 3, ad: "Daniel Miller", image: "https://images.pexels.com/photos/1819483/pexels-photo-1819483.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    complainedPerson: { id: 2, ad: "Ayşe Demir", image: "https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+    reason: "Disturbing behavior",
+  },
+  {
+    id: 3,
+    Complainant: { id: 1, ad: "Azra Arslan", image: "https://images.pexels.com/photos/1172207/pexels-photo-1172207.jpeg" },
+    complainedPerson: { id: 3, ad: "Kemal Şimşek", image: "https://images.pexels.com/photos/1549004/pexels-photo-1549004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
     reason: "Disturbing behavior",
   },
 ];
@@ -85,7 +91,7 @@ const Complaints = () => {
           className="user-info"
           onClick={(e) => {
             e.stopPropagation(); // Şikayet sayfasına gitmesini engelle
-            navigate(`/profileDetails/${complaint.Complainant.id}`);
+            navigate(`/profile/${complaint.Complainant.id}`);
           }}
         >
           <img
@@ -100,7 +106,7 @@ const Complaints = () => {
           className="user-info"
           onClick={(e) => {
             e.stopPropagation(); // Şikayet sayfasına gitmesini engelle
-            navigate(`/profileDetails/${complaint.complainedPerson.id}`);
+            navigate(`/profile/${complaint.complainedPerson.id}`);
           }}
         >
           <img

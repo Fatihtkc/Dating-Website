@@ -32,7 +32,7 @@ const Login = () => {
         navigate('/giriş');
       }
     } else {
-      setErrorMessage('Geçersiz kullanıcı adı veya şifre.');
+      setErrorMessage('Invalid Username or Password.');
     }
   };
 
