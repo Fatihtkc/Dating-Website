@@ -44,7 +44,7 @@ const ChangePassword = () => {
   };
 
   const handleChangePass = () => {
-    navigate("/giriş");
+    navigate("/login");
   };
 
   return (
