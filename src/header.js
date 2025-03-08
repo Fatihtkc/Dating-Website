@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import "../css/modstyle.css";
+import Cookies from "js-cookie";
 
 const Header = () => {
   const [menuAcik, setMenuAcik] = useState(false);
@@ -10,6 +11,8 @@ const Header = () => {
 
   const handleLogout = () => {
     navigate("/login"); // Çıkış yapınca login sayfasına yönlendir
+    Cookies.remove('session_id');
+    sessionStorage.removeItem('auth');
   };
 
   // 📌 Sayfanın herhangi bir yerine tıklanınca menüyü kapatma

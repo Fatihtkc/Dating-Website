@@ -11,6 +11,10 @@ function ChatList({ selectedChat, setSelectedChat, lastMessages }) {
     { id: 5, name: "Sophia", image: "https://randomuser.me/api/portraits/women/3.jpg" }
   ]);
 
+  const [isReportModalOpen, setIsReportModalOpen] = useState(false);
+  const [reportMessage, setReportMessage] = useState("");
+  const [reportReason, setReportReason] = useState("");
+
   const reportUser = (user) => {
     alert(`User ${user.name} has been reported.`);
     setMenuOpen(null);
@@ -19,6 +23,20 @@ function ChatList({ selectedChat, setSelectedChat, lastMessages }) {
   const removeUser = (userId) => {
     setUsers((prevUsers) => prevUsers.filter(user => user.id !== userId));
     setMenuOpen(null);
+  };
+
+  const openReportModal = () => {
+    setIsReportModalOpen(true);
+  };
+
+  const submitReport = () => {
+    if (!reportReason) return;
+    setReportMessage(`Your report about "${reportReason}" has been successfully submitted. We will review it and get back to you soon.`);
+
+    setIsReportModalOpen(false);
+    setTimeout(() => {
+      setReportMessage(""); 
+    }, 4000); 
   };
 
   return (
@@ -57,9 +75,31 @@ function ChatList({ selectedChat, setSelectedChat, lastMessages }) {
       {/* Sidebar'daki Üç Nokta Menü (Ortada Açılacak) */}
       {menuOpen !== null && (
         <div className="sidebar-menu">
-          <button onClick={() => reportUser(users.find(u => u.id === menuOpen))}>🚨 Report</button>
+          <button onClick={openReportModal}>🚨 Report</button>
           <button onClick={() => removeUser(menuOpen)}>🗑️ Delete</button>
           <button onClick={() => setMenuOpen(null)}>❌ Close</button>
+        </div>
+      )}
+      {isReportModalOpen && (
+        <div className="report-modal">
+          <h3>Report User</h3>
+          <p>Select a reason for reporting:</p>
+          <select value={reportReason} onChange={(e) => setReportReason(e.target.value)}>
+            <option value="">-- Select Reason --</option>
+            <option value="Fake Photo">Fake Photo</option>
+            <option value="Inappropriate Behavior">Inappropriate Behavior</option>
+            <option value="Scam / Fraud">Scam / Fraud</option>
+            <option value="Harassment">Harassment</option>
+            <option value="Other">Other</option>
+          </select>
+          <button onClick={submitReport} className="report-submit-btn">Submit Report</button>
+          <button onClick={() => setIsReportModalOpen(false)} className="close-modal-btn">Cancel</button>
+        </div>
+      )}
+
+      {reportMessage && (
+        <div className="report-notification2">
+          {reportMessage}
         </div>
       )}
     </div>

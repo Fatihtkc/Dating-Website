@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { FaUser, FaBars } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { 
-  FaUser, 
+import {  
   FaInfoCircle, 
   FaAlignLeft, 
   FaVenusMars, 
@@ -18,6 +18,7 @@ const LikesPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [likedProfiles, setLikedProfiles] = useState([]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     if (location.state?.likedProfiles) {
@@ -28,6 +29,32 @@ const LikesPage = () => {
   const removeProfile = (id) => {
     const updatedProfiles = likedProfiles.filter((profile) => profile.id !== id);
     setLikedProfiles(updatedProfiles);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleLogout = () => {
+    console.log('Çıkış..');
+    navigate('/login'); 
+  };
+
+  const handleEditProfile = () => {
+    navigate('/ProfilePage'); 
+  };
+
+  
+  const goToLikesPage = () => {
+    navigate('/likes', { state: { likedProfiles } }); 
+  };
+
+  const goToMatchScreen = () => {
+    navigate('/matchScreen'); 
+  };
+
+  const goToMessagesScreen = () => {
+    navigate('/chatScreen'); 
   };
 
   const handleLogoClick = () => {
@@ -41,14 +68,34 @@ const LikesPage = () => {
   return (
     <>
       <header>
-         <button className="back-button3" onClick={handleBack}>
-              <FaArrowLeft style={{ marginRight: "5px", marginTop:"10px" }} />
-         </button>
-         <div className="logo">
-              <h1 className="logo-text" onClick={handleLogoClick} style={{ cursor: "pointer" }}>SoulM</h1>
-         </div>
-      </header>
+      <div className="logo">
+        <h1 className="logo-text" onClick={handleLogoClick} style={{ cursor: "pointer" }}>SoulM</h1>
+      </div>
+      <div className="header-divider"></div>
+      <div className="menu-icon" onClick={toggleMenu}>
+        <FaBars />
+      </div>
+      <ul className={`menu ${isMenuOpen ? 'open' : ''}`}>
+        <li><a href="#" onClick={goToMatchScreen}>Matches</a></li>
+        <li><a href="#" onClick={goToMessagesScreen}>Messages</a></li>
+        <li><a href="#" onClick={goToLikesPage} >Likes</a></li>
+      </ul>
+      <div className="profile-container">
+        <ul className="profile">
+          <li className="profile-item">
+            <a href="#"> <FaUser /> Profile</a>
+            <ul className="dropdown">
+              <li><a href="#" onClick={handleLogout}>Logout</a></li>
+              <li><a href="#" onClick={handleEditProfile}>Edit Profile</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
       <div className="likes-page">
+        <button className="back-button3" onClick={handleBack}>
+                <FaArrowLeft style={{ marginRight: "5px" }} />
+              </button>
         <h1>Liked Profiles</h1>
         {likedProfiles.length > 0 ? (
           <ul className="profile-list">

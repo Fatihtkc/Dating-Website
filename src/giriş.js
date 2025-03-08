@@ -16,6 +16,16 @@ import MatchScreen from "./matchScreen";
 import AuthForm from './signup.js';
 import { X, Heart, Info, FlagTriangleLeft} from 'lucide-react';
 import { FaHeart } from "react-icons/fa";
+import {
+  FaInfoCircle, 
+  FaAlignLeft, 
+  FaVenusMars, 
+  FaMapMarkerAlt, 
+  FaSmokingBan, 
+  FaBeer, 
+  FaCheck,
+  FaArrowLeft
+} from "react-icons/fa";
 
 
 
@@ -26,7 +36,6 @@ const Header = ({ likedProfiles }) => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
 
   const handleLogout = () => {
     console.log('Çıkış..');
@@ -103,9 +112,7 @@ const Footer = () => {
             <span><FaEnvelope /> &nbsp; info@SoulM.com</span>
           </div>
           <div className="socials">
-            <a href="https://www.linkedin.com/in/bilge-acart%C3%BCrk-882448258/" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin />
-            </a>
+            <a href="#"><FaLinkedin /></a>
             <a href="#"><FaInstagram /></a>
             <a href="#"><FaDiscord /></a>
           </div>
@@ -456,11 +463,11 @@ const LikesScreen = ({ likedProfiles, setLikedProfiles }) => {
       </div>
           <h2>{selectedProfile.name}, {selectedProfile.age} </h2>
           <p>{selectedProfile.bio}</p>
-          <p>{selectedProfile.gender} </p>
-          <p>{selectedProfile.relationshipType} </p>
-          <p>{selectedProfile.location} </p>
-          <p> Smokes: {selectedProfile.smokes ? "Yes" : "No"} </p>
-          <p> Drinks: {selectedProfile.drinks} </p>
+          <p><FaVenusMars /> Gender: {selectedProfile.gender} </p>
+          <p><FaHeart /> Relationship: {selectedProfile.relationshipType} </p>
+          <p><FaMapMarkerAlt /> Location: {selectedProfile.location} </p>
+          <p><FaSmokingBan /> Smokes: {selectedProfile.smokes ? "Yes" : "No"} </p>
+          <p><FaBeer /> Drinks: {selectedProfile.drinks} </p>
           </div>
       )}
       {isReportModalOpen && (

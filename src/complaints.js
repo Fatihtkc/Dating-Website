@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate, useLocation  } from "react-router-dom";
 import "./css/modstyle.css";
 import "./css/complaints.css";
+import { FaUser, FaBars } from "react-icons/fa";
 
 const complaints = [
   {
@@ -33,6 +34,7 @@ const Complaints = () => {
 
     const handleLogout = () => {
         navigate("/login");
+        
     };
 
     useEffect(() => {
@@ -66,18 +68,16 @@ const Complaints = () => {
           Approves
         </Link>
       </nav>
-      <div className="header-right" ref={menuRef}>
-        <button className="profile-button" onClick={() => setMenuAcik(!menuAcik)}>
-          Profile ▼
-        </button>
-        {menuAcik && (
-          <div className="dropdown-menu">
-            <Link to="/profilePageForMod" className="dropdown-item">View Profile</Link>
-            <button className="dropdown-item logout" onClick={handleLogout}>
-              Logout
-            </button>
-          </div>
-        )}
+      <div className="profile-container">
+        <ul className="profile">
+          <li className="profile-item">
+            <a href="#"> <FaUser /> Profile</a>
+            <ul className="dropdown">
+              <li><a href="#" onClick={handleLogout}>Logout</a></li>
+              <li><a href="/profilePageForMod" className="dropdown-item">View Profile</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </header>
     <div className="complaints-container">

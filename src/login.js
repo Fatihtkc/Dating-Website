@@ -1,29 +1,36 @@
 import React, { useState } from 'react';
 import './css/style.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'; 
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
   const users = [
-    { username: 'manager', password: 'manager123', role: 'manager' },
-    { username: 'moderator', password: 'mod123', role: 'moderator' },
-    { username: 'user', password: 'user123', role: 'user' },
+    { email: 'manager@example.com', password: 'manager123', role: 'manager' },
+    { email: 'moderator@example.com', password: 'mod123', role: 'moderator' },
+    { email: 'user@example.com', password: 'user123', role: 'user' },
   ];
 
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); // Basit e-posta doğrulaması
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (!validateEmail(email)) {
+      setErrorMessage('Please enter a valid email address.');
+      return;
+    }
+
     const user = users.find(
-      (u) => u.username === username && u.password === password
+      (u) => u.email === email && u.password === password
     );
 
     if (user) {
-      // Role göre yönlendirme yap
       if (user.role === 'manager') {
         navigate('/Manager');
       } else if (user.role === 'moderator') {
@@ -32,7 +39,7 @@ const Login = () => {
         navigate('/giriş');
       }
     } else {
-      setErrorMessage('Invalid Username or Password.');
+      setErrorMessage('Invalid Email or Password.');
     }
   };
 
@@ -48,14 +55,15 @@ const Login = () => {
     navigate('/forgottenPassword');
   };
 
-
   return (
     <div>
       <header>
-      <div className="logo">
-        <h1 className="logo-text" onClick={handleLogoClick} style={{ cursor: "pointer" }}><span>Soul</span>M</h1>
-      </div>
-    </header>
+        <div className="logo">
+          <h1 className="logo-text" onClick={handleLogoClick} style={{ cursor: "pointer" }}>
+            <span>Soul</span>M
+          </h1>
+        </div>
+      </header>
 
       <div className="auth-content">
         <form onSubmit={handleSubmit} className="login-form">
@@ -64,14 +72,13 @@ const Login = () => {
           {errorMessage && <p className="error">{errorMessage}</p>}
 
           <div>
-            <label>Username</label>
+            <label>Email</label>
             <input
-              type="text"
-              name="username"
-              autocomplete="off"
+              type="email"
+              name="email"
               className="text-input"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div>
@@ -95,7 +102,7 @@ const Login = () => {
       </div>
       <div className="footer-summary">
         &copy; SoulM.com | Designed by Group 19
-     </div>
+      </div>
     </div>
   );
 };
