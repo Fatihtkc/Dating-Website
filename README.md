@@ -1,11 +1,9 @@
-=========================================
-  SoulM - Installation and Running Guide
-=========================================
+# SoulM - Installation and Running Guide  
 
 This project is a dating application called SoulM. Follow the steps below to set it up and run it on your computer.
 
 -----------------------------------------
- STEP 1: INSTALL THE REQUIRED PROGRAMS
+STEP 1: INSTALL THE REQUIRED PROGRAMS
 -----------------------------------------
 
 To run the project, you need to install the following programs on your computer:
